@@ -21,6 +21,26 @@ public class MemberService {
         final var memberId2 = createOne(new Member("MEMBER_2"));
         printOne(memberId1);
         printOne(memberId2);
+        logger.info("========== INSERT QUERY ==========");
+    }
+
+    public void createMemberWithFlush() {
+        final var memberId1 = createOne(new Member("MEMBER_1"));
+        final var memberId2 = createOne(new Member("MEMBER_2"));
+        logger.info("========== INSERT QUERY ==========");
+        memberRepository.flush();
+        printOne(memberId1);
+        printOne(memberId2);
+    }
+
+    public void createMemberWithFlushAndClear() {
+        final var memberId1 = createOne(new Member("MEMBER_1"));
+        final var memberId2 = createOne(new Member("MEMBER_2"));
+        logger.info("========== INSERT QUERY ==========");
+        memberRepository.flushAndClear();
+        logger.info("========== SELECT QUERY ==========");
+        printOne(memberId1);
+        printOne(memberId2);
     }
 
     private Long createOne(final Member member) {

@@ -17,4 +17,13 @@ public class TestController {
         memberService.createMember();
     }
 
+    @GetMapping("/create-member-with-flush")
+    public void createMemberWithFlush() {
+        memberService.createMemberWithFlush();
+    }
+
+    @GetMapping("/create-member-with-flush-and-clear")
+    public void createMemberWithFlushAndClear() {
+        memberService.createMemberWithFlushAndClear();
+    }
 }

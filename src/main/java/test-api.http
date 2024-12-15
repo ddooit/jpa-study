@@ -1,3 +1,11 @@
 ### MEMBER 생성
 GET localhost:8080/create-member
 Accept: application/json
+
+### MEMBER 생성 with Flush
+GET localhost:8080/create-member-with-flush
+Accept: application/json
+
+### MEMBER 생성 with Flush, Clear
+GET localhost:8080/create-member-with-flush-and-clear
+Accept: application/json
