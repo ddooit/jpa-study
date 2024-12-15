@@ -21,14 +21,16 @@ public class MemberService {
     public void createMember() {
         final var memberId1 = createOne(new Member("MEMBER_1"));
         final var memberId2 = createOne(new Member("MEMBER_2"));
+        final var memberId3 = createOne(new Member("MEMBER_3"));
         printOne(memberId1);
         printOne(memberId2);
+        printOne(memberId3);
         logger.info("========== INSERT QUERY ==========");
     }
 
     public void createMemberWithFlush() {
-        final var memberId1 = createOne(new Member("MEMBER_1"));
-        final var memberId2 = createOne(new Member("MEMBER_2"));
+        final var memberId1 = createOne(new Member("MEMBER_4"));
+        final var memberId2 = createOne(new Member("MEMBER_5"));
         logger.info("========== INSERT QUERY ==========");
         memberRepository.flush();
         printOne(memberId1);
@@ -36,8 +38,8 @@ public class MemberService {
     }
 
     public void createMemberWithFlushAndClear() {
-        final var memberId1 = createOne(new Member("MEMBER_1"));
-        final var memberId2 = createOne(new Member("MEMBER_2"));
+        final var memberId1 = createOne(new Member("MEMBER_6"));
+        final var memberId2 = createOne(new Member("MEMBER_7"));
         logger.info("========== INSERT QUERY ==========");
         memberRepository.flushAndClear();
         logger.info("========== SELECT QUERY ==========");
@@ -63,6 +65,10 @@ public class MemberService {
 
         logger.info("Equality : {}", optionalMember1.get().equals(optionalMember2.get()));
         logger.info("Identity : {}", optionalMember1.get() == optionalMember2.get());
+    }
+
+    public Member findByName(final String name) {
+        return memberRepository.findTopByName(name).orElseThrow();
     }
 
     private Long createOne(final Member member) {

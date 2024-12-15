@@ -1,16 +1,23 @@
 package jpa;
 
+import jpa.chat.ChatService;
 import jpa.member.MemberService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
 
     private final MemberService memberService;
+    private final ChatService chatService;
 
-    public TestController(final MemberService memberService) {
+    public TestController(
+            final MemberService memberService,
+            final ChatService chatService
+    ) {
         this.memberService = memberService;
+        this.chatService = chatService;
     }
 
     @GetMapping("/create-member")
@@ -37,4 +44,15 @@ public class TestController {
     public void testEqualityWhenMapping() {
         memberService.testEqualityWhenMapping();
     }
+
+    @GetMapping("/create-chat")
+    public void createChat() {
+        chatService.createChat();
+    }
+
+    @GetMapping("/chat-room/{chatRoomId}")
+    public void getChatRoom(@PathVariable long chatRoomId) {
+        chatService.getRoomById(chatRoomId);
+    }
+
 }

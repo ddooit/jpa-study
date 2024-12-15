@@ -17,3 +17,11 @@ Accept: application/json
 ### 새로운 객체로 매핑할 경우 동일성
 GET localhost:8080/test-equality-with-mapping
 Accept: application/json
+
+### 채팅(Chat, ChatRoom, ChatParticipant) 생성
+GET localhost:8080/create-chat
+Accept: application/json
+
+### 채팅(Chat, ChatRoom, ChatParticipant)
+GET localhost:8080/chat-room/1
+Accept: application/json
