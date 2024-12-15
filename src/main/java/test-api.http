@@ -1,0 +1,3 @@
+### MEMBER 생성
+GET localhost:8080/create-member
+Accept: application/json
