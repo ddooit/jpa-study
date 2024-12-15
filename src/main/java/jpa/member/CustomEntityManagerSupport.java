@@ -1,4 +1,4 @@
-package jpa;
+package jpa.member;
 
 public interface CustomEntityManagerSupport<T, ID> {
 

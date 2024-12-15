@@ -1,4 +1,4 @@
-package jpa;
+package jpa.member;
 
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;

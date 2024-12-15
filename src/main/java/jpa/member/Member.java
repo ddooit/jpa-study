@@ -1,4 +1,4 @@
-package jpa;
+package jpa.member;
 
 import jakarta.persistence.*;
 import lombok.Getter;
