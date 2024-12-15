@@ -9,3 +9,11 @@ Accept: application/json
 ### MEMBER 생성 with Flush, Clear
 GET localhost:8080/create-member-with-flush-and-clear
 Accept: application/json
+
+### 같은 트랜잭션 안에서 엔티티의 동일성
+GET localhost:8080/test-equality
+Accept: application/json
+
+### 새로운 객체로 매핑할 경우 동일성
+GET localhost:8080/test-equality-with-mapping
+Accept: application/json

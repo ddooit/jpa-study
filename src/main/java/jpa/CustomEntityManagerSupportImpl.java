@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-@Transactional
 public class CustomEntityManagerSupportImpl<T, ID> implements CustomEntityManagerSupport<T, ID> {
     @PersistenceContext
     private final EntityManager entityManager;

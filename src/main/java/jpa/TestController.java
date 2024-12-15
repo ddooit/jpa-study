@@ -26,4 +26,14 @@ public class TestController {
     public void createMemberWithFlushAndClear() {
         memberService.createMemberWithFlushAndClear();
     }
+
+    @GetMapping("/test-equality")
+    public void testEquality() {
+        memberService.testEquality();
+    }
+
+    @GetMapping("/test-equality-with-mapping")
+    public void testEqualityWhenMapping() {
+        memberService.testEqualityWhenMapping();
+    }
 }
