@@ -41,3 +41,7 @@ Accept: application/json
 ### 지연로딩에서의 N+1 해결 by fetch join
 GET localhost:8080/solve-problem-when-lazy
 Accept: application/json
+
+### 페이징, 정렬 기능
+GET localhost:8080/paging-and-sorting
+Accept: application/json

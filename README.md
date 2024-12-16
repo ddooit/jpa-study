@@ -51,3 +51,8 @@
 ## JPA 쓰면 좋은 점
 
 ### 페이징, 정렬이 매우 쉬움
+
+## 논의해보고 싶은 주제
+
+###  1. DDD에서 Domain vs Entity, 같이 할 순 없을까?
+###  2. 영속성컨텍스트의 트랜젝션 commit 처리는 어디에서 되어야 할까? service vs repository  

@@ -76,4 +76,9 @@ public class TestController {
         chatService.solveProblemWhenLazy();
     }
 
+    @GetMapping("/paging-and-sorting")
+    public void pagingAndSorting() {
+        chatService.pagingAndSorting();
+    }
+
 }

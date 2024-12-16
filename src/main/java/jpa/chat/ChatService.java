@@ -4,6 +4,8 @@ import jakarta.transaction.Transactional;
 import jpa.member.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -93,13 +95,34 @@ public class ChatService {
     }
 
     public void solveProblemWhenLazy() {
-        createChatSet(20);
+        createChatSet(10);
 
         final var allChats = chatRepository.findAllWithFetchJoin(); // 1 called
 
         for (final Chat chat : allChats) {
             // Not called
             logger.info("<< ChatRoom Title >> : {}", chat.getChatRoom().getTitle());
+        }
+    }
+
+    public void pagingAndSorting() {
+        createChatSet(100);
+        final var pageRequest = PageRequest.of(3, 10);
+        final var chats = chatRepository.findAll(pageRequest);
+
+        for (final Chat chat : chats) {
+            logger.info("<< Chat id >> : {}", chat.getId());
+            logger.info("<< Chat message >> : {}", chat.getMessage());
+        }
+
+        final var pageRequestWithSort = PageRequest.of(3, 10,
+                Sort.by("id").reverse()
+                        .and(Sort.by("message")));
+        final var chatsWithSort = chatRepository.findAll(pageRequestWithSort);
+
+        for (final Chat chat : chatsWithSort) {
+            logger.info("<< Chat id >> : {}", chat.getId());
+            logger.info("<< Chat message >> : {}", chat.getMessage());
         }
     }
 
