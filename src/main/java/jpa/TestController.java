@@ -60,4 +60,20 @@ public class TestController {
         chatService.getRoomByIdUsingReference(chatRoomId);
     }
 
+    @GetMapping("/problem-when-eager")
+    public void problemWhenEager() {
+        chatService.problemWhenEager();
+    }
+
+
+    @GetMapping("/problem-when-lazy")
+    public void problemWhenLazy() {
+        chatService.problemWhenLazy();
+    }
+
+    @GetMapping("/solve-problem-when-lazy")
+    public void solveProblemWhenLazy() {
+        chatService.solveProblemWhenLazy();
+    }
+
 }

@@ -29,3 +29,15 @@ Accept: application/json
 ### 채팅(Chat, ChatRoom, ChatParticipant) Using Reference
 GET localhost:8080/chat-room-using-reference/1
 Accept: application/json
+
+### 즉시로딩에서의 N+1
+GET localhost:8080/problem-when-eager
+Accept: application/json
+
+### 지연로딩에서의 N+1
+GET localhost:8080/problem-when-lazy
+Accept: application/json
+
+### 지연로딩에서의 N+1 해결 by fetch join
+GET localhost:8080/solve-problem-when-lazy
+Accept: application/json

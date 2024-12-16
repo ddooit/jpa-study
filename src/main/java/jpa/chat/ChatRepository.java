@@ -1,10 +1,18 @@
 package jpa.chat;
 
+import jpa.member.CustomEntityManagerSupport;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-interface ChatRepository extends JpaRepository<Chat, Long> {
+interface ChatRepository extends JpaRepository<Chat, Long>, CustomEntityManagerSupport<Chat, Long> {
+
+    @Query("select c from Chat c join fetch c.chatRoom")
+    List<Chat> findAllWithFetchJoin();
+
 }
 
 @Repository

@@ -68,4 +68,45 @@ public class ChatService {
         logger.info("is ChatRoom Class : {}", room.getClass() == ChatRoom.class);
         logger.info("is ChatRoom instance : {}", room instanceof ChatRoom);
     }
+
+    public void problemWhenEager() {
+        createChatSet(10);
+        logger.info("<< N+1 when EAGER >>");
+
+        final var allChats = chatRepository.findAll(); // 1 + N called
+
+        for (final Chat chat : allChats) {
+            logger.info("<< Chat message >> : {}", chat.getMessage());
+        }
+    }
+
+    public void problemWhenLazy() {
+        createChatSet(10);
+        logger.info("<< N+1 when Lazy >>");
+
+        final var allChats = chatRepository.findAll(); // 1 called
+
+        for (final Chat chat : allChats) {
+            // N called
+            logger.info("<< ChatRoom Title >> : {}", chat.getChatRoom().getTitle());
+        }
+    }
+
+    public void solveProblemWhenLazy() {
+        createChatSet(20);
+
+        final var allChats = chatRepository.findAllWithFetchJoin(); // 1 called
+
+        for (final Chat chat : allChats) {
+            // Not called
+            logger.info("<< ChatRoom Title >> : {}", chat.getChatRoom().getTitle());
+        }
+    }
+
+    private void createChatSet(final int count) {
+        for (int i = 0; i < count; i++) {
+            this.createChat();
+        }
+        chatRepository.flushAndClear();
+    }
 }
