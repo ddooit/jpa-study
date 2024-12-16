@@ -25,3 +25,7 @@ Accept: application/json
 ### 채팅(Chat, ChatRoom, ChatParticipant)
 GET localhost:8080/chat-room/1
 Accept: application/json
+
+### 채팅(Chat, ChatRoom, ChatParticipant) Using Reference
+GET localhost:8080/chat-room-using-reference/1
+Accept: application/json

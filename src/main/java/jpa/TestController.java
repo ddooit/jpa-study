@@ -55,4 +55,9 @@ public class TestController {
         chatService.getRoomById(chatRoomId);
     }
 
+    @GetMapping("/chat-room-using-reference/{chatRoomId}")
+    public void getChatRoomUsingReference(@PathVariable long chatRoomId) {
+        chatService.getRoomByIdUsingReference(chatRoomId);
+    }
+
 }

@@ -53,8 +53,19 @@ public class ChatService {
         logger.info("<< getRoomById >>");
 
         logger.info("<< ChatRoom >> : {}", room);
+        logger.info("Class of ChatRoom : {}", room.getClass());
+        logger.info("is ChatRoom Class : {}", room.getClass() == ChatRoom.class);
+
         logger.info("<< Chats >> : {}", room.getChats().size());
         logger.info("<< ChatParticipants >> : {}", room.getParticipants().size());
     }
 
+    public void getRoomByIdUsingReference(final Long roomId) {
+        final var room = roomRepository.getReferenceById(roomId);
+        logger.info("<< getRoomByIdUsingReference >>");
+
+        logger.info("<< ChatRoom >> : {}", room.getClass());
+        logger.info("is ChatRoom Class : {}", room.getClass() == ChatRoom.class);
+        logger.info("is ChatRoom instance : {}", room instanceof ChatRoom);
+    }
 }
