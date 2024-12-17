@@ -19,7 +19,7 @@ public class ChatParticipant {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @ManyToOne(fetch = EAGER)
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "CHAT_ROOM_ID")
     private ChatRoom chatRoom;
 

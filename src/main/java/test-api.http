@@ -45,3 +45,7 @@ Accept: application/json
 ### 페이징, 정렬 기능
 GET localhost:8080/paging-and-sorting
 Accept: application/json
+
+### 묵시적 조인
+GET localhost:8080/implicit-join
+Accept: application/json

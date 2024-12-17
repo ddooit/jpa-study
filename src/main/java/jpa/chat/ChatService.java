@@ -126,6 +126,17 @@ public class ChatService {
         }
     }
 
+    public void implicitJoin() {
+        createChatSet(10);
+
+        logger.info("<< Implicit Join >>");
+
+        final var allChatRooms = chatRepository.findAllChatRoom();
+        for (final ChatRoom chatRoom : allChatRooms) {
+            logger.info("<< ChatRoom Title>> : {}", chatRoom.getTitle());
+        }
+    }
+
     private void createChatSet(final int count) {
         for (int i = 0; i < count; i++) {
             this.createChat();

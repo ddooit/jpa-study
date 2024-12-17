@@ -13,6 +13,9 @@ interface ChatRepository extends JpaRepository<Chat, Long>, CustomEntityManagerS
     @Query("select c from Chat c join fetch c.chatRoom")
     List<Chat> findAllWithFetchJoin();
 
+    @Query("select c.chatRoom from Chat c")
+    List<ChatRoom> findAllChatRoom();
+
 }
 
 @Repository

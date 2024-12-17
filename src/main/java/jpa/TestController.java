@@ -81,4 +81,9 @@ public class TestController {
         chatService.pagingAndSorting();
     }
 
+    @GetMapping("/implicit-join")
+    public void implicitJoin() {
+        chatService.implicitJoin();
+    }
+
 }
